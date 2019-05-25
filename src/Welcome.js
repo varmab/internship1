@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 class Welcome extends Component{
     constructor(){
@@ -16,8 +17,17 @@ class Welcome extends Component{
     }
 
     render(){
-        return <h1 onClick={this.updateClicks}>Welcome to {this.props.title} - {this.state.clicks}</h1>
+        return <h1 onClick={this.updateClicks}>Welcome to {this.props.title} {this.props.year} - {this.state.clicks}</h1>
     }
+}
+
+Welcome.propTypes={
+    title:PropTypes.string,
+    year:PropTypes.number.isRequired
+}
+
+Welcome.defaultProps={
+    year:2019
 }
 
 export default Welcome;
